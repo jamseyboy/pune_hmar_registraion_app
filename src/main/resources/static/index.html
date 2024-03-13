@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"> </script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-sanitize.min.js"></script>
+    <script src = 'js/indexscript.js'></script>
+    <link rel="stylesheet" href = "css/userDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>User Information</title>
+</head>
+<body>
+    <section>
+        <div ng-app="allUserDetailsApp" >
+            <article>
+                <div ng-controller = "indexScript">
+                    <div ng-init = "getUserDetails()"></div>
+                    <h1> All User Details</h1>
+                    <table id="userTable"> 
+                            <tr>
+                                <th>User ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                                <th>Date of Birth</th>
+                            </tr>
+                        <tbody ng-repeat="a in userDetails" ng-show="isVisible">
+                            <tr>
+                                <td>{{a.userId}}</td>
+                                <td>{{a.firstName}}</td>
+                                <td>{{a.lastName}}</td>
+                                <td>{{a.email}}</td>
+                                <td>{{a.gender}}</td>
+                                <td>{{a.phoneNumber}}</td>
+                                <td>{{a.dob}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                    
+            </article>
+
+            <article>
+
+                <div ng-controller = "addressCtrl">
+                <div ng-init= "getAddressDetails()"></div>
+
+                <h1>Users Address Table</h1>
+                <table id="addressTable">
+                <thead>
+                    <tr>
+                        <th>Address ID</th>
+                        <th>Permanent Address</th>
+                        <th>Temporary Address</th>
+                        <th>User ID</th>
+                        
+                    </tr>
+                </thead>
+                <tbody ng-repeat = "b in addressDetails" ng-show = "isVisible">
+                    <td> {{b.addressId}}</td>
+                    <td> {{b.perAddress}}</td>
+                    <td> {{b.tempAddress}}</td>
+                    <td> {{b.user.userId}}</td>
+                </tbody>
+                </table>
+                    </div>
+            </article>
+
+        </div>
+
+
+
+
+
+        
+            
+        </div>
+    </section>
+
+
+
+    
+
+    
+    
+    
+</body>
+</html>
