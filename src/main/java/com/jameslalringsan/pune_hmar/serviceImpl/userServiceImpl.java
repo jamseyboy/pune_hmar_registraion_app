@@ -62,9 +62,16 @@ public class userServiceImpl implements UserService{
 
 
 
-    public String getEmialByInfoId(Integer userId){
+    public String getEmialByUserId(Integer userId){
 
         return userRepository.findEmailByUserId(userId);
+    }
+
+
+    public  Integer getUserIdByEmail(String email){
+
+
+        return userRepository.getUserIdByEmail(email);
     }
 
 

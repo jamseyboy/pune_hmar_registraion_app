@@ -22,7 +22,9 @@ public interface UserService  {
 
     public List<UserModel> findAll();
     public void saveUser(UserDto userDto);
-    public String getEmialByInfoId(Integer userId);
+    public String getEmialByUserId(Integer userId);
+
+    public Integer getUserIdByEmail(String email);
 
 
 

@@ -2,6 +2,7 @@ package com.jameslalringsan.pune_hmar.controller;
 
 import java.util.List;
 
+import com.jameslalringsan.pune_hmar.dto.UserIdDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,12 +43,23 @@ public class UserController {
 
 
      @PostMapping("/saveUser")
-     public void save( @RequestBody UserDto userDto){
+     public String save( @RequestBody UserDto userDto){
 
-      //UserModel testUserModel = new UserModel("Teresaa", "Zotee", "Teresaa@gmail.com", "Femal", "1997-04-12",);
+
          System.out.println("Below is the model passed");
          System.out.println(userDto);
-        userservice.saveUser(userDto);
+
+         try{
+             userservice.saveUser(userDto);
+             UserIdDto userId = new UserIdDto(userservice.getUserIdByEmail(userDto.getEmail()));
+             return userId.getRetrieveduserID().toString();
+
+         }catch(Exception e){
+            System.out.println(e);
+            return  "Error in saving user basic Info, Email ID: " + userDto.getEmail() + " already in use.";
+
+         }
+
      }
 
 
@@ -56,8 +68,8 @@ public class UserController {
      @GetMapping("/email")
      public String getemailId(@RequestParam("userId") Integer userId){
 
-      return userservice.getEmialByInfoId(userId);
-     } 
+      return userservice.getEmialByUserId(userId);
+     }
 
      
 }

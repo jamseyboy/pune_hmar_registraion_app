@@ -43,7 +43,7 @@ public class UserModel {
 	@Column
     private String lastName;
 
-	@Column
+	@Column(unique = true)
     private String email;
 
 	@Column

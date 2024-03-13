@@ -1,10 +1,10 @@
 package com.jameslalringsan.pune_hmar.dto;
 
-public class usrIdDto {
+public class UserIdDto {
 
 
     public  Integer retrieveduserID;
-    public usrIdDto(Integer retrieveduserID) {
+    public UserIdDto(Integer retrieveduserID) {
         this.retrieveduserID = retrieveduserID;
     }
 
