@@ -62,7 +62,7 @@ public class userServiceImpl implements UserService{
 
 
 
-    public String getEmialByUserId(Integer userId){
+    public String getEmailByUserId(Integer userId){
 
         return userRepository.findEmailByUserId(userId);
     }

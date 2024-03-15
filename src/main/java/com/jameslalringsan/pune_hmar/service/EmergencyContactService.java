@@ -11,9 +11,6 @@ import com.jameslalringsan.pune_hmar.repository.EmergencyContactRepository;
 @Service
 public interface EmergencyContactService  {
 
-
-
-
     public List<EmergencyContactModel> getEmContactList();
 
     public String saveEmergencyContact(EmergencyContactModel emergencyContactModel, Integer userId);

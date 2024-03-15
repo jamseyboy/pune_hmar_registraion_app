@@ -19,7 +19,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer","emergencyContactModelList", "addressModelsList", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","emergencyContactModelList", "addressModelsList","familyModelList", "handler"})
 @Table(name = "basic_info_table")
 public class UserModel {
     
@@ -52,6 +52,7 @@ public class UserModel {
 	@Column
     private String phoneNumber;
 
+
 	@Column
 	private Date dob;
 
@@ -65,10 +66,16 @@ public class UserModel {
 
 
 
+
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "familyUser", cascade = CascadeType.ALL)
+	private List<FamilyModel> familyModelList;
+
+
+
 	public List<AddressModel> getAddressModelsList() {
 		return addressModelsList;
 	}
-
 	public void setAddressModelsList(List<AddressModel> addressModelsList) {
 		this.addressModelsList = addressModelsList;
 	}
@@ -77,10 +84,17 @@ public class UserModel {
 	public List<EmergencyContactModel> getEmergencyContactModelList() {
 		return emergencyContactModelList;
 	}
-
 	public void setEmergencyContactModelList(List<EmergencyContactModel> emergencyContactModelList) {
 		this.emergencyContactModelList = emergencyContactModelList;
 	}
+
+
+	public List<FamilyModel> getFamilyModelList() { return familyModelList; }
+	public void setFamilyModelList(List<FamilyModel> familyModelList) {
+		this.familyModelList = familyModelList;
+	}
+
+
 
 
 	public String getfirstName() {
@@ -163,7 +177,7 @@ public class UserModel {
 	}
 
 	public UserModel(String firstName, String lastName, String email, String gender, String phoneNumber, Date dob,
-			List<AddressModel> addressModelsList, List<EmergencyContactModel> emergencyContactModelList) {
+			List<AddressModel> addressModelsList, List<EmergencyContactModel> emergencyContactModelList, List<FamilyModel> familyModelList) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -172,6 +186,7 @@ public class UserModel {
 		this.dob = dob;
 		this.addressModelsList = addressModelsList;
 		this.emergencyContactModelList = emergencyContactModelList;
+		this.familyModelList = familyModelList;
 	}
 
 	@Override

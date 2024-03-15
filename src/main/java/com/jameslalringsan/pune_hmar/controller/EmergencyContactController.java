@@ -16,8 +16,6 @@ public class EmergencyContactController {
     public EmergencyContactService emergencyContactService;
 
 
-
-
     
     //Retrive all Emergency Contacts Saved in database//
     @GetMapping

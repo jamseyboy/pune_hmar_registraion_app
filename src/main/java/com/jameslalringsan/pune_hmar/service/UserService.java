@@ -15,14 +15,14 @@ import com.jameslalringsan.pune_hmar.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
 
-
+@Service
 public interface UserService  {
 
     
 
     public List<UserModel> findAll();
     public void saveUser(UserDto userDto);
-    public String getEmialByUserId(Integer userId);
+    public String getEmailByUserId(Integer userId);
 
     public Integer getUserIdByEmail(String email);
 
