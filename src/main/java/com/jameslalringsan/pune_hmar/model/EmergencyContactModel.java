@@ -1,11 +1,6 @@
 package com.jameslalringsan.pune_hmar.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "em_contact_table")
@@ -25,8 +20,9 @@ public class EmergencyContactModel {
     @Column
     private String relation;
 
-    @Column
-    private Integer infoId;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY )
+    @JoinColumn(name ="user_id")
+    private UserModel emContactUser;
 
 
     
@@ -35,13 +31,10 @@ public class EmergencyContactModel {
     }
 
 
-    public EmergencyContactModel(Integer emContactId, String contactNumber, String contactName, String relation,
-            Integer infoId) {
-        this.emContactId = emContactId;
+    public EmergencyContactModel(String contactNumber, String contactName, String relation) {
         this.contactNumber = contactNumber;
         this.contactName = contactName;
         this.relation = relation;
-        this.infoId = infoId;
     }
 
     
@@ -78,16 +71,20 @@ public class EmergencyContactModel {
     }
 
     
-    public Integer getinfoId() {
-        return infoId;
+    public UserModel getemContactUser() {
+        return emContactUser;
     }
-    public void setinfoId(Integer infoId) {
-        this.infoId = infoId;
+    public void setEmContactUserId(UserModel emContactUser) {
+        this.emContactUser = emContactUser;
     }
 
 
 
-
-
-
+    public String toString() {
+        return "EmergencyContactModel{" +
+                "userId= '"+ emContactUser + '\'' +", " +
+                "contactNumber ='" + contactNumber + '\'' + ", " +
+                "contactName= '" + contactName + '\''+ "," +
+                "relation= ' "+ relation + "}";
+    }
 }
