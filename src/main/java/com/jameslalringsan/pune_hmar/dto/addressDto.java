@@ -2,6 +2,7 @@ package com.jameslalringsan.pune_hmar.dto;
 
 public class addressDto {
 
+    private String addressID;
 
     public String getAddressID() {
         return addressID;
@@ -11,5 +12,5 @@ public class addressDto {
         this.addressID = addressID;
     }
 
-    private String addressID;
+
 }

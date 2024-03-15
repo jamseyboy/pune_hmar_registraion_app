@@ -9,31 +9,14 @@ import com.jameslalringsan.pune_hmar.model.EmergencyContactModel;
 import com.jameslalringsan.pune_hmar.repository.EmergencyContactRepository;
 
 @Service
-public class EmergencyContactService {
-
-    @Autowired
-    private EmergencyContactRepository emergencyContactRepository;
+public interface EmergencyContactService  {
 
 
-    public List<EmergencyContactModel> getlist(){
 
-        return emergencyContactRepository.findAll();
-        
-    }
 
-    public String saveEmergencyContact(EmergencyContactModel emergencyContactModel){
+    public List<EmergencyContactModel> getEmContactList();
 
-        try{
-            emergencyContactRepository.save(emergencyContactModel);
-            return "Emergency Contact Saved Successfully";
-        }
-        catch(Exception e){
-
-            return " Failed to save due to " + e;
-
-        }
-
-    }
+    public String saveEmergencyContact(EmergencyContactModel emergencyContactModel, Integer userId);
 
 
 

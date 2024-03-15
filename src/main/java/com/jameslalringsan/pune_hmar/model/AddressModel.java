@@ -37,7 +37,7 @@ public class AddressModel {
    
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     @JoinColumn(name ="user_id")
-    private UserModel user;
+    private UserModel addressUser;
 
 
 
@@ -81,17 +81,20 @@ public class AddressModel {
     }
 
     
-    public UserModel getuser() {
-        return user;
+    public UserModel getAddressUser() {
+        return addressUser;
     }
-    public void setuser(UserModel user) {
-        this.user = user;
+    public void setAddressUser(UserModel addressUser) {
+        this.addressUser = addressUser;
     }
 
 
     public String toString(){
 
-        return "AddressModel{" + "userId= '"+ user + '\'' +", perAddress ='" + perAddress + '\'' + ", tempAddress= '" + tempAddress + "'}";
+        return "AddressModel{" +
+                "userId= '"+ addressUser + '\'' +", " +
+                "perAddress ='" + perAddress + '\'' + ", " +
+                "tempAddress= '" + tempAddress + "'}";
     }
 
 }
