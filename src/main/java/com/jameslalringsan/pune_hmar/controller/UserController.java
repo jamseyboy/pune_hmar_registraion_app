@@ -68,7 +68,7 @@ public class UserController {
      @GetMapping("/email")
      public String getemailId(@RequestParam("userId") Integer userId){
 
-      return userservice.getEmialByUserId(userId);
+      return userservice.getEmailByUserId(userId);
      }
 
      
