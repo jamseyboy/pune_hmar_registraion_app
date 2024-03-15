@@ -19,7 +19,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "addressModelsList", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","emergencyContactModelList", "addressModelsList", "handler"})
 @Table(name = "basic_info_table")
 public class UserModel {
     
@@ -56,8 +56,12 @@ public class UserModel {
 	private Date dob;
 
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "addressUser", cascade = CascadeType.ALL)
 	private List<AddressModel> addressModelsList;
+
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "emContactUser", cascade = CascadeType.ALL)
+	private List<EmergencyContactModel> emergencyContactModelList;
 
 
 
@@ -68,6 +72,16 @@ public class UserModel {
 	public void setAddressModelsList(List<AddressModel> addressModelsList) {
 		this.addressModelsList = addressModelsList;
 	}
+
+
+	public List<EmergencyContactModel> getEmergencyContactModelList() {
+		return emergencyContactModelList;
+	}
+
+	public void setEmergencyContactModelList(List<EmergencyContactModel> emergencyContactModelList) {
+		this.emergencyContactModelList = emergencyContactModelList;
+	}
+
 
 	public String getfirstName() {
 		return firstName;
@@ -149,7 +163,7 @@ public class UserModel {
 	}
 
 	public UserModel(String firstName, String lastName, String email, String gender, String phoneNumber, Date dob,
-			List<AddressModel> addressModelsList) {
+			List<AddressModel> addressModelsList, List<EmergencyContactModel> emergencyContactModelList) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -157,12 +171,19 @@ public class UserModel {
 		this.phoneNumber = phoneNumber;
 		this.dob = dob;
 		this.addressModelsList = addressModelsList;
+		this.emergencyContactModelList = emergencyContactModelList;
 	}
 
 	@Override
 	public String toString(){
 
-		return "UserModel{"+ "userId = " + userId + "firstName =  '"+ firstName + '\'' + ", lastName='"+ lastName + '\'' + ", email='"+ email + '\'' + ", phoneNumber = ' "  + phoneNumber + '\'' + ", dob ='" +dob+ "'}";
+		return "UserModel{"+
+				"userId = " + userId +
+				"firstName =  '"+ firstName + '\'' + ", " +
+				"lastName='"+ lastName + '\'' + ", " +
+				"email='"+ email + '\'' + ", " +
+				"phoneNumber = ' "  + phoneNumber + '\'' + ", " +
+				"dob ='" +dob+ "'}";
 	}
 	
 }

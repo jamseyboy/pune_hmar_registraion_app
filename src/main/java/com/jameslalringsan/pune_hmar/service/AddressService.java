@@ -13,32 +13,12 @@ import com.jameslalringsan.pune_hmar.repository.UserRepository;
 
 
 @Service
-public class AddressService {
-
-        @Autowired
-        private AddressRepository addressRepository;
-
-        @Autowired
-        private UserRepository userRepository;
+public interface AddressService {
 
 
 
-        public List<AddressModel> getlist(){
 
-            return addressRepository.findAll();
-        }
+    public List<AddressModel> getAddressList();
 
-        public String saveAddress(AddressModel addressModel, Integer userId){
-
-
-          UserModel tempUserModel = userRepository.getReferenceById(userId);
-          List<AddressModel> temAddressModels = new ArrayList<>();
-
-          addressModel.setuser(tempUserModel);
-          temAddressModels.add(addressModel);
-          tempUserModel.setAddressModelsList(temAddressModels);
-
-          userRepository.save(tempUserModel);
-          return "Address Saved Successfully";
-        }
+    public String saveAddress(AddressModel addressModel, Integer userId);
 }

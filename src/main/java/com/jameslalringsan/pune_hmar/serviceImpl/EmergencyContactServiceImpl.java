@@ -27,6 +27,7 @@ public class EmergencyContactServiceImpl implements EmergencyContactService {
 
             return emergencyContactRepository.findAll();
 
+
     }
 
 

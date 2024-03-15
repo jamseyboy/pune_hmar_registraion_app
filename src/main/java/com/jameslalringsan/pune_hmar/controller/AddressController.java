@@ -17,6 +17,8 @@ import com.jameslalringsan.pune_hmar.service.AddressService;
 @RequestMapping(path = "hsa/address")
 public class AddressController {
 
+
+        @Autowired
         public AddressService addressService;
 
         @Autowired
@@ -25,22 +27,22 @@ public class AddressController {
         }
 
         
-        @GetMapping()
-        public List<AddressModel> getlist(){
 
-            return addressService.getlist();
+        @GetMapping()
+        public List<AddressModel> getAlllist(){
+
+            return addressService.getAddressList();
         }
 
-
+        //Below is used to store all user address info in address table
         @PostMapping("/saveAddress")
         public String saveAddress(@RequestParam(name = "userId") Integer userId ,@RequestBody AddressModel addressModel){
 
             System.out.println(userId);
 
             try{
-                String savedaddress = addressService.saveAddress(addressModel, userId);
 
-                return savedaddress;
+                return addressService.saveAddress(addressModel, userId);
             }
             catch(Exception e){
                 return "Error" + e ;
