@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SaveUserDetailsApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src=" js/saveBasicInfo.js"></script>
+    <link rel="stylesheet" href = "css/basicInfoStyle.css">
+</head>
+<body ng-controller="submitUserController">
+
+    <h1> Pune Hmar Registration</h1>
+    <form ng-submit="submitUser()">
+
+        <h3>Basic Info</h3>
+
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" ng-model="basicInfo.firstName" required><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" ng-model="basicInfo.lastName" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" ng-model="basicInfo.email" required><br>
+
+        <select id="gender" ng-model="basicInfo.gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" ng-model="basicInfo.phoneNumber" required><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" ng-model="basicInfo.dob" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+
+
+
+        <button type="submit">Review</button>
+    </form>
+<form ng-show="isVisible">
+    <h1>Review your Inputs</h1>
+
+    <table>
+       
+        <tr>
+            <th>First Name :</th> 
+            <td> {{ basicInfo.firstName }}</td>
+        </tr>
+        <tr>
+            <th>Last Name :</th>
+            <td>{{ basicInfo.lastName }}</td>
+        </tr>
+        <tr>
+            <th>Email :</th>
+            <td>{{ basicInfo.email }}</td>
+        </tr>
+        <tr>
+            <th>Gender :</th>
+            <td>{{ basicInfo.gender }}</td>
+        </tr>
+        <tr>
+            <th>Phone Number :<td>
+            </th>{{ basicInfo.phoneNumber }}</td>
+        </tr>
+        <tr>
+            <th>Date of Birth :<td>
+            </th>{{ basicInfo.dob| date:'yyyy-MM-dd' }}</td>
+        </tr>
+    </table>
+    <button  ng-click = "nextPage()">Proceed to Next Section</button>
+</form>
+    
+</body>
+</html>

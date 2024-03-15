@@ -25,8 +25,13 @@ public class PuneHmarApplication {
 		return "index";
 	}
 
-	@GetMapping("/saveusers")
+	@GetMapping("/basicInfo")
 	public String saveusers() {
-		return "saveuser";
+		return "basicInfo";
+	}
+
+	@GetMapping("/allUserDetails")
+	public String allUserDetails() {
+		return "allUserDetails.html";
 	}
 }

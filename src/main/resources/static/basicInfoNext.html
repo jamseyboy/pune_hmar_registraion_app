@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="ConfirmationController">
+
+    <h2>Confirmation Page</h2>
+
+    <div>
+        <p>First Name: {{ user.firstName }}</p>
+        <p>Last Name: {{ user.lastName }}</p>
+        <p>Email: {{ user.email }}</p>
+    </div>
+
+    <button ng-click="submitUser()">Next</button>
+
+    <script>
+        angular.module('myApp', [])
+        .controller('ConfirmationController', function($scope, $http, $location) {
+            // Retrieve user data from local storage
+            $scope.user = JSON.parse(localStorage.getItem('user'));
+
+            $scope.submitUser = function() {
+                $http({
+                    method: 'POST',
+                    url: 'http://example.com/api/user', // Replace with your API endpoint
+                    data: $scope.user
+                })
+                .then(function(response) {
+                    alert('User information submitted successfully');
+                    // Redirect to a success page or any other page as needed
+                    $location.path('/success');
+                })
+                .catch(function(error) {
+                    console.error('Error submitting user information:', error);
+                    alert('Failed to submit user information. Please try again.');
+                });
+            };
+        });
+    </script>
+
+</body>
+</html>
