@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SaveEmContactDetailsApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/emergencyContactScript.js"></script>
+    <link rel="stylesheet" href = "css/formStyle.css">
+</head>
+<body ng-controller="submitEmContactController">
+
+    <h1> Pune Hmar Registration</h1>
+    <form ng-submit="submitEmContact()">
+
+        <h3>Emergency Contact Info</h3>
+
+        <label for="contactNumber">Contact Number :</label>
+        <input type="text" id="contactNumber" ng-model="emContactInfo.contactNumber" required><br>
+
+        <label for="contactName">Full Name :</label>
+        <input type="text" id="contactName" ng-model="emContactInfo.contactName" required><br>
+
+        <select id="relation" ng-model="emContactInfo.relation" required>
+            <option value="">Select Relation</option>
+            <option value="Mother">Mother</option>
+            <option value="Father">Father</option>\
+            <option value="Son">Son</option>
+            <option value="Daughter">Sister</option>
+            <option value="Brother">Brother</option>
+            <option value="Sister">Sister</option>
+            <option value="Cousin">Cousin</option>
+            <option value="Uncle">Uncle</option>
+            <option value="Aunty">Aunty</option>
+            <option value="Partner">Partner</option>
+            <option value="Friend">Friend</option>
+
+        </select><br>
+
+
+        <button type="submit">Review</button>
+    </form>
+<form ng-show="isVisible">
+    <h1>Review your Inputs</h1>
+
+    <table>
+       
+        <tr>
+            <th>Contact Number :</th> 
+            <td> {{ emContactInfo.contactNumber }}</td>
+        </tr>
+        <tr>
+            <th> Full Name :</th>
+            <td>{{ emContactInfo.contactName }}</td>
+        </tr>
+        <tr>
+            <th>Relation :</th>
+            <td>{{ emContactInfo.relation }}</td>
+        </tr>
+    </table>
+    <button  ng-click = "nextPage()">Proceed to Next Section</button>
+</form>
+    
+</body>
+</html>

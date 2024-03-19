@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SaveFamilyDetailsApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/familyDetailsScript.js"></script>
+    <link rel="stylesheet" href = "css/formStyle.css">
+</head>
+<body ng-controller="submitFamilyController" id="family">
+
+    <h1> Pune Hmar Registration</h1>
+    <form ng-submit="submitFamily()">
+
+        <h3>Family Info</h3>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" ng-model="familyInfo.name" required><br>
+
+        <select id="gender" ng-model="familyInfo.gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+
+        <label for="phoneNumber">Phone Number (if Any):</label>
+        <input type="text" id="phoneNumber" ng-model="familyInfo.phoneNumber" ><br>
+
+
+        <select id="relation" ng-model="familyInfo.relation" required>
+            <option value="">Select Relation</option>
+            <option value="Mother">Mother</option>
+            <option value="Father">Father</option>
+            <option value="Brother">Brother</option>
+            <option value="Sister">Sister</option>
+            <option value="Cousin">Cousin</option>
+            <option value="Uncle">Uncle</option>
+            <option value="Aunty">Aunty</option>
+            <option value="Partner">Partner</option>
+            <option value="Friend">Friend</option>
+
+        </select><br>
+
+
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" ng-model="familyInfo.dob" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+
+
+
+        <button type="submitFamily">Review</button>
+    </form>
+<form ng-show="isVisible">
+    <h1>Recent Input</h1>
+    <table>
+       
+        <tr>
+            <th>Full Name :</th> 
+            <td> {{ familyInfo.name }}</td>
+        </tr>
+        <tr>
+            <th>Gender :</th>
+            <td>{{ familyInfo.gender }}</td>
+        </tr>
+    
+        <tr>
+            <th>Phone Number :<td>
+            </th>{{ familyInfo.phoneNumber }}</td>
+        </tr>
+        <tr>
+            <th>Relation :<td>
+            </th>{{ familyInfo.relation }}</td>
+        </tr>
+        <tr>
+            <th>Date of Birth :<td>
+            </th>{{ familyInfo.dob| date:'yyyy-MM-dd' }}</td>
+        </tr>
+    </table>
+    
+    
+    
+
+
+    <table >
+        <div>
+            
+            <h1> Added Family Details</h1>
+            <table id="familyTable"> 
+                    <tr>
+                        <th>Sl no.</th>
+                        <th>Full Name</th>
+                        <th>Gender</th>
+                        <th>Phone Number</th>
+                        <th>Relation</th>
+                        <th>Date of Birth</th>
+                    </tr>
+                <tbody ng-repeat="a in familyDetails" ng-show="isVisible">
+                    <tr>
+                        <td >{{$index + 1}}</td>
+                        <td>{{a.name}}</td>
+                        <td>{{a.gender}}</td>
+                        <td>{{a.phoneNumber}}</td>
+                        <td>{{a.relation}}</td>
+                        <td>{{a.dob | date:'yyyy-MM-dd' }}</td>
+                    </tr>
+    
+                </tbody>
+            </table>
+        </div>
+    </table>
+    <button  ng-click = "addMoreFamily()">Add more Family Members</button>
+    <button  ng-click = "finish()">Finish</button>
+</form>
+
+    
+</body>
+</html>

@@ -12,7 +12,7 @@ app.controller("indexScript", function($scope, $http, $window){
     $scope.getUserDetails = function(){
 
         $scope.userId = JSON.parse(localStorage.getItem('userId'));
-        console.log("This is the user ID" + $scope.userId)
+        console.log("This is the user ID " + $scope.userId)
         $http({
 
             method: 'GET',

@@ -30,7 +30,8 @@ public class EmergencyContactController {
     public String saveEmergencyContact(@RequestParam(name = "userId") Integer userId, @RequestBody EmergencyContactModel emergencyContactModel){
 
         try{
-            return emergencyContactService.saveEmergencyContact(emergencyContactModel, userId);
+             emergencyContactService.saveEmergencyContact(emergencyContactModel, userId);
+             return "1";
         }catch(Exception e){
             return e.toString();
         }
