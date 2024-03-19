@@ -25,7 +25,8 @@ public class FamilyController {
     public  String saveFamily(@RequestParam(name = "userId") Integer userId,@RequestBody FamilyModel familyModel ){
 
         try{
-            return familyService.saveFamily(familyModel, userId);
+            familyService.saveFamily(familyModel, userId);
+            return "1";
         }catch (Exception e){
 
             return e.toString();

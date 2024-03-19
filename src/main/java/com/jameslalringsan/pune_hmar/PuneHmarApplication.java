@@ -20,15 +20,21 @@ public class PuneHmarApplication {
 		SpringApplication.run(PuneHmarApplication.class, args);
 	}
 
-	@GetMapping("/")
+	@GetMapping("")
 	public String index() {
 		return "index";
 	}
 
 	@GetMapping("/basicInfo")
-	public String saveusers() {
-		return "basicInfo";
+	public String saveUsers() {
+		return "basicInfo.html";
 	}
+
+	@GetMapping("/addressInfo")
+	public String saveAddress() {
+		return "addressInfo.html";
+	}
+
 
 	@GetMapping("/allUserDetails")
 	public String allUserDetails() {

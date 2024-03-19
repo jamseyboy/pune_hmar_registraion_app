@@ -72,6 +72,34 @@
                     </div>
             </article>
 
+            <article>
+
+                <div ng-controller = "emContactCtrl">
+                <div ng-init= "getEmContactDetails()"></div>
+
+                <h1>Users Emergency Contact Table</h1>
+                <table id="emContactTable">
+                <thead>
+                    <tr>
+                        <th>Em Contact ID</th>
+                        <th>Emergency Contact Number</th>
+                        <th>Emergency Contact Name</th>
+                        <th>Relation</th>
+                        <th>UserID</th>
+                        
+                    </tr>
+                </thead>
+                <tbody ng-repeat = "b in emContactDetails" ng-show = "isVisible">
+                    <td> {{b.addressId}}</td>
+                    <td> {{b.perAddress}}</td>
+                    <td> {{b.tempAddress}}</td>
+                    <td> {{b.addressUser.userId}}</td>
+                </tbody>
+                </table>
+                    </div>
+            </article>
+
+
         </div>
 
 

@@ -30,7 +30,7 @@ app.controller("submitUserController", function($scope,$http, $location, $window
 
             localStorage.setItem('userId', JSON.stringify(response.data))
     
-            $window.location.href = '/allUserDetails';
+            $window.location.href = '/addressInfo.html';
         });
         
 

@@ -3,12 +3,13 @@ body {
 }
 
 form {
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 
 h1{
     text-align: center;
@@ -36,6 +37,26 @@ button {
     cursor: pointer;
 }
 
+#perAddress, #tempAddress {
+    height: 100px; /* Adjust the height as needed */
+    width: 300px;  /* Optional: Set the width */
+    /* Other styling properties */
+}
+
 button:hover {
     background-color: #0056b3;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
 }

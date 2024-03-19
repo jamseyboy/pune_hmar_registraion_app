@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SaveAddressDetailsApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Input Page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src=" js/saveAddressInfoScript.js"></script>
+  <link rel="stylesheet" href = "css/formStyle.css">
+</head>
+<body ng-controller="submitAddressController">
+
+<h1> Pune Hmar Registration</h1>
+<form ng-submit="submitAddress()">
+
+  <h3>Address Info</h3>
+
+  <label for="perAddress">Permanent Address:</label>
+  <p><input type="textArea" id="perAddress" ng-model="addressInfo.perAddress" required><br></p>
+
+  <label for="tempAddress">Temporary Address:</label>
+  <p><input type="textArea" id="tempAddress" ng-model="addressInfo.tempAddress" required><br></p>
+
+
+  <button type="submit">Review</button>
+</form>
+<form ng-show="isVisible">
+  <h1>Review your Inputs</h1>
+
+  <table>
+
+    <tr>
+      <th>Permanent Address :</th>
+      <td> {{ addressInfo.perAddress }}</td>
+    </tr>
+    <tr>
+      <th>Temporary Address :</th>
+      <td>{{ addressInfo.tempAddress }}</td>
+    </tr>
+
+  </table>
+  <button  ng-click = "nextPage()">Proceed to Next Section</button>
+</form>
+
+</body>
+</html>
