@@ -1,0 +1,49 @@
+
+    body {
+        
+        background-image: url('../images/logoHSA.jpg');
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 10vh; /* Ensure full viewport height */
+        margin: 0; /* Remove default margin */
+        display: flex;
+        flex-direction: column;
+    }
+    .container {
+        
+        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background for better readability */
+        padding: 200px;
+        border-radius: 10px;
+        flex-grow: 2; /* Grow to fill remaining space */
+    }
+    h1 {
+        margin-top: 100px;
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+    }
+    .button:hover {
+        background-color: #0056b3;
+    }
+    footer{
+        background-color: #b9b9b9;
+        color: #000000;
+        padding: 0.5px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }

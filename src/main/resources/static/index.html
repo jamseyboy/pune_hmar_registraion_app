@@ -1,1 +1,27 @@
-<h1>Welocme to</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="css/loginStyle.css" >
+<title>Welcome Page</title>
+
+
+<link rel = "stylesheet" href = "css/indexStyle.css">
+<script src="js/indexController.js"></script>
+
+</head>
+<body ng-app = "puneHmarApp">
+
+<div class="container" ng-controller = "puneHmarController">
+    <h1>Welcome to Pune Hmar Welfare Members Registration Page</h1>
+    <button class="button" ng-click="registerFresh()">Register as Fresh</button>
+    <button class="button" ng-click="registerRenew()">Register and Renew</button>
+    <button class="button" ng-click="renewMembership()">Renew Membership</button>
+    <button class="button" ng-click="editUserDetails()">Edit your details</button>
+</div>
+
+</body>
+<footer>This Web Application is created by James Lalringsan</footer>
+</html>

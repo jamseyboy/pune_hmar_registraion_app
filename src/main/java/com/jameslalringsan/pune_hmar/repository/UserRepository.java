@@ -18,5 +18,4 @@ String findEmailByUserId(Integer userId);
 @Query(value = "select s.user_id from basic_info_table s where s.email = :email", nativeQuery = true)
 Integer getUserIdByEmail(String email);
 
-
 }

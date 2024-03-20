@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Login</title>
+<link rel="stylesheet" href="css/loginStyle.css" >
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/loginScript.js"></script>
+</head>
+<body ng-app = "loginApp" >
+
+<div class="container" ng-controller = "loginController">
+    <h2>User Login</h2>
+    <form id="loginForm" ng-submit="login()">
+        <input type="email" id="email" name="email" placeholder="Email" ng-model = "user.email" required>
+        <input type="password" id="password" name="password" placeholder="Password"  ng-model ="user.password" required>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+
+</body>
+</html>

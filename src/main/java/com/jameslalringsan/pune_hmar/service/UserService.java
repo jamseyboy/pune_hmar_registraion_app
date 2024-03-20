@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.jameslalringsan.pune_hmar.dto.UserDto;
 import com.jameslalringsan.pune_hmar.model.AddressModel;
 import com.jameslalringsan.pune_hmar.model.UserModel;
+import com.jameslalringsan.pune_hmar.model.LoginModel;
 import com.jameslalringsan.pune_hmar.repository.AddressRepository;
 import com.jameslalringsan.pune_hmar.repository.UserRepository;
 
@@ -25,6 +26,11 @@ public interface UserService  {
     public String getEmailByUserId(Integer userId);
 
     public Integer getUserIdByEmail(String email);
+
+    public String loginUser(LoginModel loginModel);
+
+    public String registerUser(LoginModel loginModel);
+
 
 
 

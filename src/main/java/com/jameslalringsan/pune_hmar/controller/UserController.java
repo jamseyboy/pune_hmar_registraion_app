@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jameslalringsan.pune_hmar.dto.UserDto;
+import com.jameslalringsan.pune_hmar.model.LoginModel;
 import com.jameslalringsan.pune_hmar.model.UserModel;
 import com.jameslalringsan.pune_hmar.service.UserService;
 
@@ -69,6 +70,26 @@ public class UserController {
      public String getemailId(@RequestParam("userId") Integer userId){
 
       return userservice.getEmailByUserId(userId);
+     }
+
+
+     @PostMapping("/loginUser")
+     public String loginUser(@RequestBody LoginModel loginModel){
+
+        System.out.println(loginModel);
+
+       return userservice.loginUser(loginModel); // if 1 success, 0 umatch pw, -1 exception
+     }
+
+
+     @PostMapping("/registerUser")
+     public String registerUser(@RequestBody LoginModel loginModel){
+
+
+        System.out.println(loginModel);
+       return userservice.registerUser(loginModel);
+
+
      }
 
      

@@ -28,7 +28,7 @@ app.controller("submitEmContactController", function($scope, $http, $location, $
         }).then(function saveAddress(response){
             $window.location.href = '/family.html';
         }).catch(function(error){
-        console.error('Error:', error);
+            console.error('Error:', error);
 
         });
 
