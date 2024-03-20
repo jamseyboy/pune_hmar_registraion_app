@@ -1,5 +1,7 @@
 body {
     font-family: Arial, sans-serif;
+    background-image: url('../images/logoHSA.jpg');
+    background-color: block;
 }
 
 form {
