@@ -47,6 +47,13 @@
         <label for="dob">Date of Birth:</label>
         <input type="date" id="dob" ng-model="familyInfo.dob" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
 
+        <select id="status" ng-model="familyInfo.status" required>
+            <option value="">Select Status</option>
+            <option value="Fresh">Fresh</option>
+            <option value="Renew">Renew</option>
+
+        </select><br>
+
 
 
         <button type="submitFamily">Review</button>
@@ -75,6 +82,10 @@
         <tr>
             <th>Date of Birth :<td>
             </th>{{ familyInfo.dob| date:'yyyy-MM-dd' }}</td>
+        </tr>
+        <tr>
+            <th>Status<td>
+            </th>{{ familyInfo.status }}</td>
         </tr>
     </table>
     

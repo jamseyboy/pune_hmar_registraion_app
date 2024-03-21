@@ -22,6 +22,16 @@ public class LoginModel {
 
     @Column(unique = true)
     private String email;
+    @Column
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getPassword() {
         return password;
@@ -39,9 +49,10 @@ public class LoginModel {
         this.email = email;
     }
 
-    public LoginModel(String password, String email) {
+    public LoginModel(String password, String email, String status) {
         this.password = password;
         this.email = email;
+        this.status = status;
     }
 
 

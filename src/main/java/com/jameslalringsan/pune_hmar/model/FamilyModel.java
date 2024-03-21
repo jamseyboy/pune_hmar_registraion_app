@@ -28,6 +28,10 @@ public class FamilyModel {
     private Date dob;
 
 
+    @Column
+    private String status;
+
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     @JoinColumn(name ="user_id")
     private UserModel familyUser;
@@ -37,12 +41,13 @@ public class FamilyModel {
         super();
     }
 
-    public FamilyModel(String name, String gender, String phoneNumber,String relation, Date dob) {
+    public FamilyModel(String name, String gender, String phoneNumber,String relation, Date dob, String status) {
         this.name = name;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.relation = relation;
         this.dob = dob;
+        this.status = status;
     }
 
     public Integer getFamilyId() {
@@ -93,6 +98,14 @@ public class FamilyModel {
         this.dob = dob;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public UserModel getFamilyUser() {
         return familyUser;
     }
@@ -100,6 +113,9 @@ public class FamilyModel {
     public void setFamilyUser(UserModel familyUser) {
         this.familyUser = familyUser;
     }
+
+
+
 
     public String toString(){
 
