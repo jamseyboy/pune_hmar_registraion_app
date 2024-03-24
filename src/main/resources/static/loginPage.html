@@ -17,6 +17,9 @@
         <input type="password" id="password" name="password" placeholder="Password"  ng-model ="user.password" required>
         <input type="submit" value="Login">
     </form>
+
+    <div class="processing" ng-show="loading"><img src="images/Fidget-spinner.gif" > <h3>{{waitMessage}}</h3></div>
+    <h3 class= "warning" ng-show="isVisible">{{alertMessage}}</h3>
 </div>
 
 

@@ -2,6 +2,7 @@ package com.jameslalringsan.pune_hmar.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,14 +75,20 @@ public class userServiceImpl implements UserService{
              String DBpassword = credentialsRepository.findPasswordByEmail(requestEmail);
 
 
-             System.out.println("DB Pw: " + DBpassword + " .Model PW: " + loginModel.getPassword());
+             System.out.println("DB Pw: " + DBpassword + " Model PW: " + loginModel.getPassword());
            
             if(loginModel !=null && loginModel.getPassword().equals(DBpassword)){
+
                 return "1";
             }
-            else{
+            else if (DBpassword == null){
                 return "0";
-            }         
+            }else if(loginModel.getPassword() !=null && DBpassword != null && !Objects.equals(loginModel.getPassword(), DBpassword)){
+                return "10";
+            }
+            else{
+                return "-1";
+            }
         }catch(Exception e){
             System.out.println(e);
             return "-1";   

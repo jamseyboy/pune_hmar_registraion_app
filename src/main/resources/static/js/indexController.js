@@ -12,22 +12,13 @@ app.controller("puneHmarController", function($scope,$http, $location, $window){
 
 
     $scope.register = function(){
-        localStorage.setItem('membershipStatus', 'register' )
         $window.location.href = '/registerPage.html'
     }
 
-    $scope.renewMembership = function(){
-       
-        localStorage.setItem('membershipStatus', 'renew')
+    $scope.login = function(){
         $window.location.href = '/loginPage.html'
     }
 
-    $scope.editUserDetails = function(){
-
-
-        localStorage.setItem('membershipStatus', 'edit')
-        $window.location.href = '/loginPage.html'
-    }
 
 
 });

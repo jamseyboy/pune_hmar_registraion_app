@@ -8,30 +8,60 @@ app.config(['$qProvider', function ($qProvider) {
 
 
 
-app.controller("loginController", function($http, $window, $location, $scope){
+app.controller("loginController", function($http, $window, $location, $scope, $timeout){
 
+    $scope.loading = false;
+    $scope.isVisible = false;
+    $scope.waitMessage = "Checking Credentials..";
 
     $scope.login = function(){
 
-    console.log($scope.user);
+    $scope.loading = true;
 
-        $http({
+    $timeout(function(){
 
-            method : 'POST',
-            url: "http://localhost:8080/hsa/users/loginUser",
-            data: $scope.user
-        }).then(function(response){
-            if(response.data == "1"){
-            $window.location.href ="/basicInfo.html"
-            }
-            else{
-            window.alert("Incorrect Email or Password")}
+        console.log($scope.user);
+
+                $http({
+
+                    method : 'POST',
+                    url: "http://localhost:8080/hsa/users/loginUser",
+                    data: $scope.user
+                }).then(function(response){
 
 
-        }).catch(function(error){
 
-            console.error('Error:', error);
-        })
+                    if(response.data == "1"){
+                    $scope.waitMessage = "Success"
+                    $window.location.href ="/basicInfo.html"
+                    }
+                    else if(response.data == "0"){
+                    $scope.isVisible = true
+                    $scope.loading = false;
+                    $scope.alertMessage = "Email ID " + $scope.user.email + " is not yet registered or Incorrect"
+
+                    }else if(response.data == "10"){
+                    $scope.isVisible = true;
+                    $scope.loading = false;
+                    $scope.alertMessage = "Incorrect password, please try again"
+                    }
+                    else{
+                    $scope.isVisible = true;
+                    $scope.loading = false;
+                    $scope.alertMessage = "An error has occurred"
+                    }
+
+
+                }).catch(function(error){
+                    $scope.isVisible = true
+                    $scope.alertMessage = "Unknown Error"
+                    console.error('Error:', error);
+                })
+
+        }, 2000);
+
+
+
 
     }
     

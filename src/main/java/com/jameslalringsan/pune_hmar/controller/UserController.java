@@ -78,7 +78,9 @@ public class UserController {
 
         System.out.println(loginModel);
 
-       return userservice.loginUser(loginModel); // if 1 success, 0 umatch pw, -1 exception
+       String type = userservice.loginUser(loginModel); // if 1 success, 0 invalid email,10 password unmatched, -1 exception
+         System.out.println(type);
+         return type;
      }
 
 
