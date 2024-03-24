@@ -4,23 +4,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <link rel="stylesheet" href="css/loginStyle.css" >
+    <link rel="stylesheet" href="css/indexStyle2.css" >
 <title>Welcome Page</title>
-
-
-<link rel = "stylesheet" href = "css/indexStyle.css">
 <script src="js/indexController.js"></script>
 
 </head>
-<body ng-app = "puneHmarApp">
+<body ng-app = "puneHmarApp" ng-controller = "puneHmarController">
 
-<div class="container" ng-controller = "puneHmarController">
+<div class="header">
     <h1>Welcome to Pune Hmar Welfare Members Registration Page</h1>
-    <button class="button" ng-click="registerFresh()">Register as Fresh</button>
-    <button class="button" ng-click="registerRenew()">Register and Renew</button>
-    <button class="button" ng-click="renewMembership()">Renew Membership</button>
-    <button class="button" ng-click="editUserDetails()">Edit your details</button>
 </div>
+
+
+<div class="content">
+    <div id="navbar">
+        <button ng-click="home()">Home</button>
+        <button ng-click="register()">Register</button>
+        <button ng-click="renewMembership()">Renew Membership</button>
+        <button ng-click="editUserDetails()">Edit your details</button>
+        <button ng-click="editUserDetails()">Articles</button>
+        <button ng-click="about()">About</button>
+
+
+    </div>
+
+    <iframe  src="/basicInfoNext.html" width="100%" height="800px"></iframe>
+    <h1>Above use Iframe</h1>
+    <h1>Below use script</h1>
+    <div id="subContent"></div>
+
+
+
+</div>
+
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+
+
+
+// Load content from another HTML page using JavaScript
+document.getElementById('subContent').innerHTML = '<object type="text/html" data="basicInfoNext.html" width="100%" height="500px"></object>';
+
+</script>
+
+
 
 </body>
 <footer>This Web Application is created by James Lalringsan</footer>

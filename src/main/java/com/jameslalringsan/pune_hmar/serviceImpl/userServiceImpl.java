@@ -97,7 +97,14 @@ public class userServiceImpl implements UserService{
             return "1"; //success registration
 
         }catch(Exception e){
-            return "-1";
+            String errorMessage = e.getMessage();
+            if(errorMessage.contains("[Duplicate")){
+                return "0";
+            }
+            else{
+                return "-1";
+            }
+            
         }
     }
 

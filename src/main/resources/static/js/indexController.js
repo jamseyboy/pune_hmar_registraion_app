@@ -8,15 +8,11 @@ app.config(['$qProvider', function ($qProvider) {
 app.controller("puneHmarController", function($scope,$http, $location, $window){
 
 
-    $scope.registerFresh = function(){
-
-        localStorage.setItem('membershipStatus', 'fresh')
-       $window.location.href = '/registerPage.html'
-    }
 
 
-    $scope.registerRenew = function(){
-        localStorage.setItem('membershipStatus', 'regRenew' )
+
+    $scope.register = function(){
+        localStorage.setItem('membershipStatus', 'register' )
         $window.location.href = '/registerPage.html'
     }
 
@@ -28,12 +24,12 @@ app.controller("puneHmarController", function($scope,$http, $location, $window){
 
     $scope.editUserDetails = function(){
 
+
         localStorage.setItem('membershipStatus', 'edit')
-        $window.location.href = '/editUserDetails.html'
+        $window.location.href = '/loginPage.html'
     }
 
 
-
-    
-
 });
+
+
