@@ -29,6 +29,10 @@ public class PuneHmarApplication {
 	public String saveUsers() {
 		return "basicInfo.html";
 	}
+	@GetMapping("/basicInfoNext")
+	public String iframe() {
+		return "basicInfoNext.html";
+	}
 
 	@GetMapping("/addressInfo")
 	public String saveAddress() {

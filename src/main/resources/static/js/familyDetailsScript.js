@@ -44,9 +44,12 @@ app.controller("submitFamilyController", function($scope,$http, $location, $wind
 
     }
 
+    $scope.clearList = function(){
 
+    localStorage.removeItem('families');
+    $window.location.href = '/family.html';
 
-
+    }
 
 
 
@@ -59,8 +62,6 @@ app.controller("submitFamilyController", function($scope,$http, $location, $wind
     }
 
     
-
-
 
 
 

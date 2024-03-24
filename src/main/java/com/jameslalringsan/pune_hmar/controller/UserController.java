@@ -86,7 +86,7 @@ public class UserController {
      public String registerUser(@RequestBody LoginModel loginModel){
 
 
-        System.out.println(loginModel);
+        System.out.println(loginModel.getEmail() + loginModel.getStatus() + loginModel.getPassword());
        return userservice.registerUser(loginModel);
 
 

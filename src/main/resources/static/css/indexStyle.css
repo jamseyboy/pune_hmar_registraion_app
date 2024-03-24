@@ -1,16 +1,20 @@
 
     body {
         
-        background-image: url('../images/logoHSA.jpg');
+        background-image: url('../images/logoHSA.png');
         font-family: Arial, sans-serif;
         text-align: center;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        height: 10vh; /* Ensure full viewport height */
+        height: 5vh; /* Ensure full viewport height */
         margin: 0; /* Remove default margin */
         display: flex;
         flex-direction: column;
+    }
+    iframe{
+    flex-direction: center;
+    display: block;
     }
     .container {
         
@@ -42,8 +46,16 @@
     footer{
         background-color: #b9b9b9;
         color: #000000;
-        padding: 0.5px 0;
+        padding: 0px 0;
         position: relative;
         bottom: 0;
         width: 100%;
     }
+    form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+

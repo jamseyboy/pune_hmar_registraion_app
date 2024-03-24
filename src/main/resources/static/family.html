@@ -45,12 +45,12 @@
 
 
         <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" ng-model="familyInfo.dob" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+        <input type="date" id="dob" ng-model="familyInfo.dob" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required><br>
 
         <select id="status" ng-model="familyInfo.status" required>
             <option value="">Select Status</option>
-            <option value="Fresh">Fresh</option>
-            <option value="Renew">Renew</option>
+            <option value="Fresh">Fresh Member</option>
+            <option value="Renew">Renew Membership</option>
 
         </select><br>
 
@@ -105,6 +105,7 @@
                         <th>Phone Number</th>
                         <th>Relation</th>
                         <th>Date of Birth</th>
+                        <th>Status</th>
                     </tr>
                 <tbody ng-repeat="a in familyDetails" ng-show="isVisible">
                     <tr>
@@ -114,6 +115,7 @@
                         <td>{{a.phoneNumber}}</td>
                         <td>{{a.relation}}</td>
                         <td>{{a.dob | date:'yyyy-MM-dd' }}</td>
+                        <td>{{a.status}}</td>
                     </tr>
     
                 </tbody>
@@ -121,6 +123,7 @@
         </div>
     </table>
     <button  ng-click = "addMoreFamily()">Add more Family Members</button>
+    <button ng-click ="clearList()">Clear family List</button>
     <button  ng-click = "finish()">Finish</button>
 </form>
 
