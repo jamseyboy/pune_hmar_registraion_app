@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="css/loginStyle.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/registerScript.js"></script>
+</head>
+<body ng-app = "registerApp" >
+
+<div class="container" ng-controller = "registerController">
+    <h2>User Registration</h2>
+    <form id="registerForm" ng-submit="register()">
+        <input type="email" id="email" name="email" placeholder="Email" ng-model = "user.email" required>
+        <input type="password" id="password" name="password" placeholder="Password"  ng-model ="user.password" minlength="8" required>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"  ng-model ="user.confirmPassword" minlength="8" required>
+        <select id="status" ng-model="user.status" required>
+            <option value="">Select Status</option>
+            <option value="Fresh">Fresh</option>
+            <option value="Existing member">Existing Member</option>
+        </select><br>
+
+        <input type="submit" value="Register">
+    </form>
+    <br>
+    <div class="processing" ng-show="loading"><img src="images/Fidget-spinner.gif" > <h3>{{waitMessage}}</h3></div>
+    <h3 class= "warning" ng-show="isVisible">{{alertMessage}}</h3>
+</div>
+
+
+</body>
+</html>
