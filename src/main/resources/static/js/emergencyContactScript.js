@@ -18,19 +18,46 @@ app.controller("submitEmContactController", function($scope, $http, $location, $
 
     $scope.nextPage = function(){
 
+    $scope.showModal=true;
 
-        $scope.userId = JSON.parse(localStorage.getItem('userId'));
+    $scope.userId = JSON.parse(localStorage.getItem('userId'));
 
-        $http({
-            method: 'POST',
-            url: 'http://localhost:8080/hsa/emergencyContact/saveEmergencyContact?userId=' + $scope.userId ,
-            data: $scope.emContactInfo
-        }).then(function saveAddress(response){
-            $window.location.href = '/family.html';
-        }).catch(function(error){
-            console.error('Error:', error);
+ $scope.selectStatus =function(status){
 
-        });
+            if(status == 'family'){
+            $http({
+                        method: 'POST',
+                        url: 'http://localhost:8080/hsa/emergencyContact/saveEmergencyContact?userId=' + $scope.userId ,
+                        data: $scope.emContactInfo
+                    }).then(function saveAddress(response){
+                        $window.location.href = '/family.html';
+                    }).catch(function(error){
+                        console.error('Error:', error);
+
+                    });
+
+            }
+            else if(status = 'single'){
+            $http({
+                        method: 'POST',
+                        url: 'http://localhost:8080/hsa/emergencyContact/saveEmergencyContact?userId=' + $scope.userId ,
+                        data: $scope.emContactInfo
+                    }).then(function saveAddress(response){
+                        $window.location.href = '/allUserDetails.html';
+                    }).catch(function(error){
+                        console.error('Error:', error);
+
+                    });
+
+            }
+            else{
+                console.error('Error');
+            }
+
+
+ }
+
+
 
     }
 
