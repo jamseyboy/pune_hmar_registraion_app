@@ -6,10 +6,11 @@ app.config(['$qProvider', function ($qProvider) {
 
 
 
-app.controller("registerController", function($scope, $window, $http,$timeout){
+app.controller("registerController", function($scope, $window, $http,$timeout, $location){
     $scope.waitMessage="Loading...."
     $scope.isVisible=false;
     $scope.loading = false;
+
     
 
     $scope.register = function(){
@@ -31,6 +32,7 @@ app.controller("registerController", function($scope, $window, $http,$timeout){
     
                                 if(response.data != null && response.data == "1"){
                                     $scope.waitMessage="Success"
+                                    localStorage.setItem('email', $scope.userData.email)
                                     $window.location.href="/basicInfo.html"
                                 }
                                 else if(response.data != null && response.data == "0"){

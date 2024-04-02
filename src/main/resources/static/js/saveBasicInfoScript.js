@@ -8,15 +8,26 @@ app.config(['$qProvider', function ($qProvider) {
 app.controller("submitUserController", function($scope,$http, $location, $window){
 
     $scope.basicInfo ={};
+
     $scope.isVisible = false;
 
     $scope.submitUser = function(){
-
-        console.log($scope.basicInfo);
+        $scope.basicData={
+                    firstName : $scope.basicInfo.firstName,
+                    lastName : $scope.basicInfo.lastName,
+                    email : localStorage.getItem('email'),
+                    gender : $scope.basicInfo.gender,
+                    phoneNumber : $scope.basicInfo.phoneNumber,
+                    dob : formatDate($scope.basicInfo.dob)
+                    };
         $scope.isVisible = true;
+
+
+
     }
 
     $scope.nextPage = function(){
+
 
         $scope.basicInfo.dob = formatDate($scope.basicInfo.dob);
         console.log($scope.basicInfo);
@@ -25,11 +36,11 @@ app.controller("submitUserController", function($scope,$http, $location, $window
 
             method: 'POST',
             url: 'http://localhost:8080/hsa/users/saveUser',
-            data: $scope.basicInfo
+            data: $scope.basicData
         }).then(function saveUser(response){
 
-            localStorage.setItem('userId', JSON.stringify(response.data))
-    
+            localStorage.setItem('userId', JSON.stringify(response.data));
+            localStorage.removeItem('email');
             $window.location.href = '/addressInfo.html';
         });
         
